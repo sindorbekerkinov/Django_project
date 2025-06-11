@@ -11,7 +11,7 @@ def login_required_decorate(func):
 @login_required_decorate
 def logout_page(request):
     logout(request)
-    return redirect("login_page")
+    return redirect("home")
 
 def login_page(request):
     if request.POST:
@@ -21,7 +21,6 @@ def login_page(request):
         if user is not None:
             login(request, user)
         return redirect("home")
-
     return render(request,"account/login.html")
 
 @login_required_decorate

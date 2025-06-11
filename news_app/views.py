@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView
-
+from .custom_permission import OnlyLoggedSuperUser
 
 from .forms import InputForm
 from .models import Category, News, Advertisement
@@ -183,16 +183,16 @@ class ContactView(TemplateView):
 #     template_name = 'contact.html'
 #     success_url = reverse_lazy('home')
 
-class NewsUpdateView(UpdateView):
+class NewsUpdateView(OnlyLoggedSuperUser,UpdateView):
     model = News
     fields = ('title', 'body', 'image','category', 'status',)
     template_name = 'crud/news_edit.html'
     success_url = reverse_lazy('home')
-class NewsDeleteView(DeleteView):
+class NewsDeleteView(OnlyLoggedSuperUser,DeleteView):
     model = News
     template_name = 'crud/news_delete.html'
     success_url = reverse_lazy('home')
-class NewsCreateView(CreateView):
+class NewsCreateView(OnlyLoggedSuperUser,CreateView):
     model = News
     template_name = 'crud/news_create.html'
     fields = ('title', 'slug', 'body', 'image','category', 'status',)

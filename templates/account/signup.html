@@ -51,7 +51,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: 650px;
+    height: 700px;
     width: 600px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -90,9 +90,9 @@ input{
     width: 100%;
     background-color: rgba(255,255,255,0.07);
     border-radius: 3px;
-    padding: 5px;
+    padding: 20px;
     margin-top: 0px;
-    font-size: 10px;
+    font-size: 15px;
     font-weight: 400;
 }
 ::placeholder{
@@ -146,10 +146,10 @@ button{
                 {{ field.label_tag }}<br>
                 <div class="au-input au-input--full">{{ field }}</div>
                 {% if field.help_text %}
-                    <br><small style="../static/account_static/css/style.css">{{ field.help_text }}</small>
+                    <br><small style="font-size: 12px; color: white;">{{ field.help_text }}<br></small>
                 {% endif %}
                 {% for error in field.errors %}
-                    <p style="../static/account_static/css/style.css">{{ error }}</p>
+                    <p style="font-size: 12px; color: white;">{{ error }}</p>
                 {% endfor %}
             </p>
         {% endfor %}
@@ -158,3 +158,15 @@ button{
 </body>
 </html>
 
+<!--{% for field in form %}-->
+<!--            <p>-->
+<!--                {{ field.label_tag }}<br>-->
+<!--                <div class="au-input au-input&#45;&#45;full">{{ field }}</div>-->
+<!--                {% if field.help_text %}-->
+<!--                    <br><small style="">{{ field.help_text }}</small>-->
+<!--                {% endif %}-->
+<!--                {% for error in field.errors %}-->
+<!--                    <p style="">{{ error }}</p>-->
+<!--                {% endfor %}-->
+<!--            </p>-->
+<!--        {% endfor %}-->
