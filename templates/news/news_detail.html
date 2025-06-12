@@ -11,11 +11,11 @@
         <p class="fs-5">{{ news.body }}</p>
 
         <div class="mt-4 d-flex justify-content-center gap-3">
-<!--            {% if request.user.is_authenticated and request.user.is_superuser%}-->
+            {% if request.user.is_authenticated and request.user.is_superuser%}
             <a href="{% url 'news_create' news.slug %}" class="btn btn-info px-4">Yangilik qo'shish</a>
             <a href="{% url 'news_update' news.slug %}" class="btn btn-success px-4">Tahrirlash</a>
             <a href="{% url 'news_delete' news.slug %}" class="btn btn-danger px-4">O'chirish</a>
-<!--            {% endif %}-->
+            {% endif %}
         </div>
     </div>
 </body>
