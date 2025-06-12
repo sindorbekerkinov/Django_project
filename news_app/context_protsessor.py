@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from unicodedata import category
 
+
 from .models import News, FooterData, Category
 
 

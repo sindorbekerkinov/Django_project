@@ -1,18 +1,44 @@
 {% extends 'news/base.html'%}
 {% load static %}
 {% block content %}
+<body style="background: linear-gradient(135deg, #e0f7fa, #80deea); min-height: 100vh;">
+    <div class="container py-5 text-center">
+        <br>
+        <img class="img-fluid rounded shadow mb-4" style="width: 550px; height: 350px; object-fit: cover;" src="{{ news.image.url }}" alt="News Image">
 
- <h3>{{ news.title}}</h3>
-    <p>Sana: {{ news.publish_time}}</p>
-    <img src="{{ news.image.url}}" alt="rasm topilmadi">
-    <p>{{ news.body}}</p>
+        <h3 class="fw-bold mb-3">{{ news.title }}</h3>
+        <p class="text-muted mb-4">Sana: {{ news.publish_time }}</p>
+        <p class="fs-5">{{ news.body }}</p>
 
- <div class="container">
-     {% if request.user.is_authenticated and request.user.is_superuser %}
-     <button class="btn btn-info"><a href="{% url 'news_create' news.slug %}">Yangilik qo'shish</a></button>
-     <button class="btn btn-success"><a href="{% url 'news_update' news.slug %}">Tahrirlash</a></button>
-     <button class="btn btn-danger"><a href="{% url 'news_delete' news.slug %}">O'chirish</a></button>
-     {% endif %}
- </div>
-
+        <div class="mt-4 d-flex justify-content-center gap-3">
+<!--            {% if request.user.is_authenticated and request.user.is_superuser%}-->
+            <a href="{% url 'news_create' news.slug %}" class="btn btn-info px-4">Yangilik qo'shish</a>
+            <a href="{% url 'news_update' news.slug %}" class="btn btn-success px-4">Tahrirlash</a>
+            <a href="{% url 'news_delete' news.slug %}" class="btn btn-danger px-4">O'chirish</a>
+<!--            {% endif %}-->
+        </div>
+    </div>
+</body>
 {% endblock content %}
+
+
+
+
+
+
+
+
+<!--<body>-->
+<!--<div class="container"><br>-->
+<!--    <img class="img-fluid w-" style="width:400px; height:200px;" src="{{ news.image.url }}">-->
+<!--    <h3>{{ news.title}}</h3>-->
+<!--    <p>Sana: {{ news.publish_time}}</p>-->
+<!--    <p>{{ news.body}}</p>-->
+
+
+<!--    <button class="btn btn-info"><a href="{% url 'news_create' news.slug %}">Yangilik qo'shish</a></button>-->
+<!--    <button class="btn btn-success"><a href="{% url 'news_update' news.slug %}">Tahrirlash</a></button>-->
+<!--    <button class="btn btn-danger"><a href="{% url 'news_delete' news.slug %}">O'chirish</a></button>-->
+
+<!--</div>-->
+<!--</body>-->
